@@ -50,6 +50,7 @@ model = BinClr(x.shape[1]).to(device)
 # Streamlit UI
 
 st.title("Lung Cancer Prediction System")
+st.info("For all questions: 1 = No, 2 = Yes")
 
 age = st.number_input("Age", 1, 100, 30)
 
