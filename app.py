@@ -19,6 +19,9 @@ for column in data.columns:
 data = data.dropna()
 
 x = data.drop('LUNG_CANCER', axis=1).values.astype(np.float32)
+data['LUNG_CANCER'] = data['LUNG_CANCER'].astype(str).str.strip()
+data['LUNG_CANCER'] = data['LUNG_CANCER'].map({'NO': 0, 'YES': 1})
+
 y = data['LUNG_CANCER'].values.astype(np.float32)
 
 scaler = StandardScaler()
