@@ -13,10 +13,10 @@ if 'GENDER' in data.columns:
 
 for column in data.columns:
     if data[column].dtype == 'object':
+        data[column] = data[column].astype(str).str.strip()
         data[column] = data[column].map({'NO': 0, 'YES': 1})
 
 data = data.dropna()
-data = data.apply(pd.to_numeric)
 
 x = data.drop('LUNG_CANCER', axis=1).values.astype(np.float32)
 y = data['LUNG_CANCER'].values.astype(np.float32)
